@@ -1,0 +1,228 @@
+{% load static %}
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, html {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.bg-img {
+    /* The image used */
+    background-image:url("{% static 'images/sign.jpg'%}");
+
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Add styles to the form container */
+.container {
+    position: absolute;
+    right: 50px;
+
+    margin: 60px;
+    max-width: 400px;
+    padding: 16px;
+    background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=file] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus ,input[type=file]{
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for the submit button */
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+
+
+
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:100px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none;
+    }
+  }
+
+  .foot{ background-color:#272525  ;
+		height:80px;
+
+  }
+
+  .fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 3px 4px;
+  border-radius: 60%;
+  float:right;
+
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+
+
+</style>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'index' %}">Lawyer's Hub</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'talk' %}">Talk to Lawyer</a></li>
+        <li><a href="{% url 'lawyers' %}">Lawyers</a></li>
+        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'Login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<form  method="post">
+<div class="bg-img"  >
+
+      {% csrf_token %}
+    <div class="container">
+	  <h1>Lawyer's Profile</h1>
+    <label >Profile Picture</label><br>
+    <input type="file" accept="image/*" name="picture">
+    <br>
+    <div>
+      <label for="Area">Area of Law</label><br>
+        <select id="area" name="area" title="select">
+            <option selected="selected">Select Area</option>
+            <option value="1">Family Law</option>
+            <option value="2">Property Law</option>
+            <option value="3">Criminal Law</option>
+            <option value="4">Civil Law</option>
+            <option value="5">Labour Law</option>
+            <option value="6">Taxation Law</option>
+        </select>
+    </div> <br>
+	<label for="city">Location</label>	
+    <input type="text" id="city" name="cityname" placeholder="Your city..">
+   	 <label for="Email">Email</label><br>
+	<input type="email" id="email" name="email" placeholder="Your email..">
+        <br>
+        <br>
+        <div>
+        <label for="Licensed">Licensed</label><br>
+        <select id="Licensed" name="Licensed">
+    <option selected="selected">Select Licensed</option>
+    <option value="1">1 year</option>
+        <option value="2">2 years</option>
+        <option value="3">3 years</option>
+        <option value="4">4 years</option>
+        <option value="5">5 years</option>
+        <option value="6">6 years</option>
+        </select>
+        </div><br>
+
+        <label for="Certification">Certification</label><br>
+    <input type="file" name="pic" accept="image/*">
+    <br>
+
+    <button type="submit" class="btn">Update</button>
+    </div>
+</div>
+  </form>
+<footer class="container-fluid text-center foot">
+  <a href="#" class="fa fa-facebook"></a>
+  <a href="#" class="fa fa-twitter"></a>
+  <a href="#" class="fa fa-google"></a>
+  <p style="color:white;font-size:20px;"><span class="glyphicon glyphicon-copyright-mark"></span>All Rights Reserved 2018</p>
+</footer>
+
+
+
+</body>
+</html>

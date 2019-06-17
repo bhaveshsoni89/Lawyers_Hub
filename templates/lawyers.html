@@ -1,0 +1,213 @@
+{% load static %}
+
+<html lang="en">
+<head>
+  <title>Lawyers</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+  
+  
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:100px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+  
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.col-sm-4:hover .image {
+  opacity: 0.3;
+}
+
+.thumbnail {
+
+                border: 1px solid black;
+                border-radius: 0;
+                padding-top: 0;
+                margin: 1px;
+                width: 33%;
+                    }
+
+h3{text-align: center;
+    font-weight: bold;}
+
+  .foot{ background-color:#272525  ;
+		height:80px;
+		bottom-margin:0px;
+  }
+  
+  .fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 3px 4px;
+  border-radius: 60%;
+  float:right;
+  
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+    background: #dd4b39;
+    color: white;
+}
+
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Lawyer's Hub</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'talk_to_lawyer' %}">Talk to Lawyer</a></li>
+        <li><a href="{% url 'lawyers' %}">Lawyers</a></li>
+        <li><a href="{% url 'contactin' %}">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'Login' %}?action=logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br><br>
+<div class="container">
+<H1 style="text-align: center">Lawyers by their practice area</H1>
+<div class="container-fluid">
+   <div class="row">
+    <div class="col-sm-4 thumbnail" >
+        <br>
+        <a href="{% url 'family' %}"><img src="{% static 'images/family.jpg' %}" class="img-responsive image"
+                                          style="width:100%; " alt="Image"></a>
+
+        <h3>FAMILY LAW</h3>
+    </div>
+    <div class="col-sm-4 thumbnail">
+      <br>
+        <a href="{% url 'property' %}"><img src="{% static 'images/house.jpg' %}" class="img-responsive image"
+                                            style="width:100%" alt="Image"></a>
+        <h3>PROPERTY LAW</h3>
+    </div>
+    <div class="col-sm-4 thumbnail">
+      <br>
+        <a href="{% url 'criminal' %}"><img src="{% static 'images/crim.jpg' %}" class="img-responsive image"
+                                            style="width:100%; " alt="Image"></a>
+        <h3>CRIMINAL LAW</h3>
+    </div>
+   </div>
+</div>
+<br>
+
+<div class="container-fluid">
+   <div class="row">
+    <div class="col-sm-4 thumbnail">
+      <br>
+        <a href="{% url 'civil' %}"><img src="{% static 'images/civ.jpg' %}"  class="img-responsive image" style="width:100%" alt="Image"></a>
+        <h3>CIVIL LAW</h3>
+    </div>
+    <div class="col-sm-4 thumbnail">
+      <br>
+        <a href="{% url 'labour' %}"><img src="{% static 'images/LAB.jpg' %}"  class="img-responsive image" style="width:100%" alt="Image"></a>
+        <h3>LABOUR</h3>
+    </div>
+    <div class="col-sm-4 thumbnail">
+      <br>
+        <a href="{% url 'tax' %}"><img src="{% static 'images/books.jpg' %}" class="img-responsive image" style="width:100%" alt="Image"></a>
+        <h3>TAXATION</h3>
+    </div>
+
+  </div>
+</div>
+
+<br>
+<br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+       
+
+	   
+	   
+	   
+	   
+	   
+<footer class="container-fluid text-center foot">
+  <a href="#" class="fa fa-facebook"></a>
+  <a href="#" class="fa fa-twitter"></a>
+  <a href="#" class="fa fa-google"></a>
+  <p style="color:white;font-size:20px;"><span class="glyphicon glyphicon-copyright-mark"></span>All Rights Reserved 2018</p>    
+</footer>
+
+</body>
+</html>
